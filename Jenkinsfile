@@ -3,6 +3,7 @@ node('docker') {
     stage 'Clean Up'
         sh 'docker ps'
         sh 'docker images'
+          sh 'docker rm -f app'
         sh 'docker rm -f grid_chrome_1'
         sh 'docker rm -f grid_firefox_1'
         sh 'docker rm -f selenium-hub'
