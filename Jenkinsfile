@@ -9,8 +9,8 @@ node('docker') {
         sh "docker build --tag=wildfly-app ./app "
     stage 'Run'
         sh "docker run -d -p 80:80 -it --name app wildfly-app "
-   stage 'Get info'
-        sh "docker inspect app"
+   stage 'Up Grid'
+        sh "docker-compose up"
    stage 'Run Maven'
         sh "mvn clean test"
 }
