@@ -1,6 +1,8 @@
 node('docker') {
 
     stage 'Clean Up'
+        sh 'docker ps'
+        sh 'docker images'
         sh 'docker rm -f app'
 
     stage 'Checkout'
