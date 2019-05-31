@@ -14,7 +14,7 @@ node('docker') {
     stage 'Run'
         sh "docker run -d -p 80:80 -it --name app wildfly-app "
    stage 'Up Grid'
-        sh "docker-compose -f up"
+        sh "docker-compose up"
    stage 'Run Maven'
         sh "mvn clean test"
 }
