@@ -3,6 +3,8 @@ node('docker') {
     stage 'Clean Up'
         sh 'docker ps'
         sh 'docker images'
+        sh 'docker rm -f app'
+
 
 
     stage 'Checkout'
@@ -12,7 +14,7 @@ node('docker') {
     stage 'Run'
         sh "docker run -d -p 80:80 -it --name app wildfly-app "
    stage 'Up Grid'
-        sh "docker-compose -d up"
+        sh "docker-compose -f up"
    stage 'Run Maven'
         sh "mvn clean test"
 }
